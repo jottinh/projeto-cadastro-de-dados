@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta name="theme-color" content="#e9eee5">
+  <title>Entre | Mensagens privadas</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</head>
+<body>
+  <main id="auth-screen" class="auth-screen">
+    <section class="auth-intro" aria-labelledby="brand-title">
+      <a class="brand" href="/" aria-label="Entre início"><span class="brand-symbol">e.</span><span>entre</span></a>
+      <div class="intro-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> CONVERSAS QUE APROXIMAM</div>
+        <h1 id="brand-title">Fale com quem<br>faz parte da sua vida.</h1>
+        <p>Um espaço simples para conversas de verdade. Encontre pessoas pelo telefone e mantenha tudo no mesmo lugar.</p>
+      </div>
+      <div class="intro-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="art-note note-one"><span class="note-face face-coral">M</span><span><b>Marina</b><small>viu sua mensagem</small></span><i class="note-check">✓✓</i></div>
+        <div class="art-note note-two"><span class="note-face face-green">R</span><span><b>Rafael</b><small>online agora</small></span><i class="online-mark"></i></div>
+        <div class="art-center"><span class="art-center-icon">e.</span><span class="art-spark">✳</span></div>
+        <div class="art-caption">perto, mesmo de longe</div>
+      </div>
+      <div class="intro-foot"><span>UM LUGAR SEU</span><span>01 — 03</span></div>
+    </section>
+
+    <section class="auth-panel" aria-label="Acesso à conta">
+      <div class="auth-topline"><span>Já tem uma conta?</span><button class="text-button" id="show-login-top" type="button">Entrar</button></div>
+      <div class="auth-card">
+        <div id="auth-forms">
+          <div class="auth-heading">
+            <span class="form-kicker" id="form-kicker">BEM-VINDO DE VOLTA</span>
+            <h2 id="form-title">Entre na sua conta</h2>
+            <p id="form-description">Use seu telefone e senha para continuar.</p>
+          </div>
+          <div class="auth-tabs" role="tablist" aria-label="Acesso">
+            <button class="auth-tab active" id="login-tab" type="button" role="tab" aria-selected="true">Entrar</button>
+            <button class="auth-tab" id="register-tab" type="button" role="tab" aria-selected="false">Criar conta</button>
+          </div>
+          <form id="login-form" class="auth-form">
+            <label for="login-phone">Telefone com código do país</label>
+            <input id="login-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+55 11 99999-1234" required>
+            <label for="login-password">Senha</label>
+            <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Sua senha" required>
+            <div class="form-notice" id="login-notice" role="status" hidden></div>
+            <button class="primary-button" type="submit">Entrar <span aria-hidden="true">→</span></button>
+          </form>
+          <form id="register-form" class="auth-form" hidden>
+            <label for="register-name">Como podemos te chamar?</label>
+            <input id="register-name" name="name" type="text" autocomplete="name" maxlength="80" placeholder="Seu nome" required>
+            <label for="register-phone">Telefone com código do país</label>
+            <input id="register-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+55 11 99999-1234" required>
+            <label for="register-password">Crie uma senha</label>
+            <input id="register-password" name="password" type="password" autocomplete="new-password" minlength="12" maxlength="256" placeholder="12 caracteres ou mais" required>
+            <p class="field-hint">Use pelo menos 12 caracteres. O código de confirmação local aparece no terminal do servidor.</p>
+            <div class="form-notice" id="register-notice" role="status" hidden></div>
+            <button class="primary-button" type="submit">Criar minha conta <span aria-hidden="true">→</span></button>
+          </form>
+          <form id="verify-form" class="auth-form" hidden>
+            <div class="verify-icon" aria-hidden="true">✳</div>
+            <p class="verify-copy">Digite o código de 6 dígitos mostrado no terminal que está executando o servidor.</p>
+            <label for="verify-code">Código de confirmação</label>
+            <input id="verify-code" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" placeholder="000000" required>
+            <div class="form-notice" id="verify-notice" role="status" hidden></div>
+            <button class="primary-button" type="submit">Confirmar telefone <span aria-hidden="true">→</span></button>
+            <button class="text-button back-to-register" id="back-to-register" type="button">Voltar ao cadastro</button>
+          </form>
+        </div>
+        <div class="auth-assurance"><span class="assurance-mark">✓</span><span>Suas conversas são separadas por conta.</span></div>
+      </div>
+      <footer class="auth-footer"><span>ENTRE · MENSAGENS PRIVADAS</span><span>Feito para conversar.</span></footer>
+    </section>
+  </main>
+
+  <main id="chat-app" class="chat-app" hidden>
+    <aside class="chat-sidebar" id="chat-sidebar">
+      <div class="sidebar-brand-row">
+        <a class="brand brand-small" href="/" aria-label="Entre início"><span class="brand-symbol">e.</span><span>entre</span></a>
+        <button class="quiet-icon" id="logout-button" type="button" title="Sair da conta" aria-label="Sair da conta">↗</button>
+      </div>
+      <div class="sidebar-heading"><div><span class="form-kicker">SEU ESPAÇO</span><h1>Conversas</h1></div><button class="new-contact-button" id="open-contact" type="button" aria-label="Adicionar contato" title="Adicionar contato">+</button></div>
+      <label class="chat-search"><span aria-hidden="true">⌕</span><input id="chat-search" type="search" placeholder="Buscar conversas" autocomplete="off" aria-label="Buscar conversas"></label>
+      <div class="chat-list" id="chat-list" aria-label="Conversas"></div>
+      <div class="sidebar-account"><span class="account-avatar" id="account-avatar">E</span><span class="account-copy"><b id="account-name">Minha conta</b><small id="account-phone"></small></span><span class="account-lock" title="Sessão protegida">●</span></div>
+    </aside>
+
+    <section class="chat-main" id="chat-main" aria-label="Mensagens">
+      <div class="welcome-state" id="welcome-state">
+        <div class="welcome-emblem"><span>e.</span><i>✳</i></div>
+        <span class="form-kicker">SEU ESPAÇO DE CONVERSA</span>
+        <h2>As boas conversas<br>começam com um oi.</h2>
+        <p>Adicione alguém pelo telefone para iniciar uma conversa privada.</p>
+        <button class="primary-button welcome-button" id="welcome-contact" type="button">Adicionar contato <span aria-hidden="true">→</span></button>
+      </div>
+      <div id="active-chat" class="active-chat" hidden>
+        <header class="conversation-header">
+          <button class="back-to-list" id="mobile-back" type="button" aria-label="Voltar às conversas">←</button>
+          <div class="contact-avatar" id="contact-avatar">?</div>
+          <div class="conversation-person"><h2 id="contact-name">Contato</h2><p id="contact-phone"></p></div>
+          <div class="conversation-secure"><span>●</span><span>Conversa privada</span></div>
+        </header>
+        <div class="messages" id="messages" aria-live="polite" aria-label="Histórico de mensagens"></div>
+        <form class="message-composer" id="message-form">
+          <input id="message-input" type="text" maxlength="4000" placeholder="Escreva uma mensagem..." autocomplete="off" aria-label="Escreva uma mensagem">
+          <button class="send-button" type="submit" aria-label="Enviar mensagem" title="Enviar mensagem">↑</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="contact-modal" hidden>
+    <form class="contact-modal" id="contact-form">
+      <div class="modal-top"><div><span class="form-kicker">NOVO CONTATO</span><h2>Quem você quer chamar?</h2></div><button class="quiet-icon modal-close" id="close-contact" type="button" aria-label="Fechar">×</button></div>
+      <p>Encontre uma conta confirmada usando o número com código do país.</p>
+      <label for="contact-phone-input">Telefone</label>
+      <input id="contact-phone-input" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+55 11 99999-1234" required>
+      <div class="form-notice" id="contact-notice" role="status" hidden></div>
+      <div class="modal-actions"><button class="secondary-button" id="cancel-contact" type="button">Cancelar</button><button class="primary-button" type="submit">Adicionar <span aria-hidden="true">→</span></button></div>
+    </form>
+  </div>
+  <div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

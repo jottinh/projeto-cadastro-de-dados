@@ -1,0 +1,102 @@
+[
+  {
+    "id": "29d97fc824f1495588abe1aead679296",
+    "name": "Marina Costa",
+    "handle": "marina@email.com",
+    "avatar": "https://i.pravatar.cc/96?img=47",
+    "online": true,
+    "unread": 0,
+    "messages": [
+      {
+        "id": "cf7ea6add30e4a19b41fd9d2b0d43501",
+        "sender": "them",
+        "text": "Você viu as fotos do fim de semana?",
+        "time": "09:38"
+      },
+      {
+        "id": "26db96d77ece440db7d92d8125662474",
+        "sender": "me",
+        "text": "Vi sim! Ficaram incríveis 📸",
+        "time": "09:41"
+      },
+      {
+        "id": "8be51e57d2664968b7e178ecf1278f42",
+        "sender": "them",
+        "text": "Vou te mandar o álbum completo mais tarde",
+        "time": "09:42"
+      }
+    ]
+  },
+  {
+    "id": "bae0c27ebcd8416aaee8a42def28e3d8",
+    "name": "Rafael Mendes",
+    "handle": "rafa@email.com",
+    "avatar": "https://i.pravatar.cc/96?img=12",
+    "online": false,
+    "unread": 0,
+    "messages": [
+      {
+        "id": "9b1fe57d197c41e1a5d6120b154211d5",
+        "sender": "them",
+        "text": "Fechado, nos vemos às 19h!",
+        "time": "09:15"
+      },
+      {
+        "id": "526ddea003aa41dd90cc899bae7fb2cb",
+        "sender": "me",
+        "text": "Combinado. Já reservei a mesa",
+        "time": "09:18"
+      }
+    ]
+  },
+  {
+    "id": "54003e72fc3a4318a0f1a5809ef57d0c",
+    "name": "Lia Oliveira",
+    "handle": "lia@email.com",
+    "avatar": "https://i.pravatar.cc/96?img=44",
+    "online": true,
+    "unread": 0,
+    "messages": [
+      {
+        "id": "603db950ca1c47639f3910eaa9a12209",
+        "sender": "them",
+        "text": "Obrigada pela ajuda de hoje 💛",
+        "time": "08:56"
+      },
+      {
+        "id": "e54870561cc0494ca55b16ec5ceb999d",
+        "sender": "me",
+        "text": "Sempre que precisar!",
+        "time": "09:02"
+      },
+      {
+        "id": "089ad707e1d74520808d1855082b5dce",
+        "sender": "me",
+        "text": "eee",
+        "time": "23:17"
+      }
+    ]
+  },
+  {
+    "id": "138adba917564ae3a04410ea0050f043",
+    "name": "Grupo: Casa 204",
+    "handle": "4 participantes",
+    "avatar": "https://i.pravatar.cc/96?img=5",
+    "online": false,
+    "unread": 0,
+    "messages": [
+      {
+        "id": "8ece3b560c474345b3c805460769704a",
+        "sender": "them",
+        "text": "Pedro: alguém traz sobremesa?",
+        "time": "Ontem"
+      },
+      {
+        "id": "702a42c603d64acf8be7976c293d6d58",
+        "sender": "me",
+        "text": "Eu levo! 🍰",
+        "time": "Ontem"
+      }
+    ]
+  }
+]
